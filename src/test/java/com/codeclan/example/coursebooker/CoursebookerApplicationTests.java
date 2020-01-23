@@ -56,25 +56,25 @@ class CoursebookerApplicationTests {
 
 	@Test
 	public void findCustomersByBookingsCourseNameAndBookingsCourseTown(){
-		List<Customer> found = customerRepository.findCustomersByBookingsCourseNameAndBookingsCourseTown("Dragon Riding", "Throat of the World");
+		List<Customer> found = customerRepository.findCustomersByBookingsCourseNameIgnoreCaseAndBookingsCourseTownIgnoreCase("Dragon Riding", "Throat of the World");
 		assertEquals("Bilbo", found.get(0).getName());
 	}
 
 	@Test
 	public void findCustomersByTownAndBookingsCourseId(){
-		List<Customer> found = customerRepository.findCustomersByTownAndBookingsCourseId("Dragonstone", 3L);
+		List<Customer> found = customerRepository.findCustomersByTownIgnoreCaseAndBookingsCourseId("Dragonstone", 3L);
 		assertEquals("Dhaenrys", found.get(0).getName());
 	}
 
 	@Test
-	public void findCustomersByBookingsCourseNameAndBookingsCourseTownAndAgeGreaterThan(){
-		List<Customer> found = customerRepository.findCustomersByBookingsCourseNameAndBookingsCourseTownAndAgeGreaterThan("Dragon Riding", "Throat of the World", 50);
+	public void findCustomersByBookingsCourseNameIgnoreCaseAndBookingsCourseTownIgnoreCaseAndAgeGreaterThan(){
+		List<Customer> found = customerRepository.findCustomersByBookingsCourseNameIgnoreCaseAndBookingsCourseTownIgnoreCaseAndAgeGreaterThan("Dragon Riding", "Throat of the World", 50);
 		assertEquals("Bilbo", found.get(0).getName());
 	}
 
 	@Test
-	public void findCustomersByTownAndCourseIdAndAgeGreaterThan(){
-		List<Customer> found = customerRepository.findCustomersByTownAndBookingsCourseIdAndAgeGreaterThan("Dragonstone", 3L, 50);
+	public void findCustomersByTownIgnoreCaseAndBookingsCourseIdAndAgeGreaterThan(){
+		List<Customer> found = customerRepository.findCustomersByTownIgnoreCaseAndBookingsCourseIdAndAgeGreaterThan("Dragonstone", 3L, 50);
 		assertEquals(0, found.size());
 	}
 
