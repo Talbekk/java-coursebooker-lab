@@ -1,5 +1,6 @@
 package com.codeclan.example.coursebooker;
 
+import com.codeclan.example.coursebooker.models.Booking;
 import com.codeclan.example.coursebooker.models.Course;
 import com.codeclan.example.coursebooker.models.Customer;
 import com.codeclan.example.coursebooker.repository.BookingRepository;
@@ -44,6 +45,13 @@ class CoursebookerApplicationTests {
 	public void findCoursesByBookingsCustomerId(){
 		List<Course> found = courseRepository.findCoursesByBookingsCustomerId(1L);
 		assertEquals("Dragon Riding", found.get(0).getName());
+	}
+
+	@Test
+	public void findBookingsByDate(){
+		List<Booking> found = bookingRepository.findBookingsByDate("12-10-17");
+		assertEquals("Bilbo", found.get(0).getCustomer().getName());
+		assertEquals(1L, found.get(0).getId());
 	}
 
 
