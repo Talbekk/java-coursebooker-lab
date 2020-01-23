@@ -24,8 +24,7 @@ public class Course {
     private int rating;
 
     @JsonIgnoreProperties("course")
-    @OneToMany
-    @JoinColumn(name="booking_id", nullable = false)
+    @OneToMany(mappedBy = "course")
     private List<Booking> bookings;
 
     public Course(String name, String town, int rating) {
