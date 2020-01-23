@@ -14,17 +14,17 @@ public class Booking {
     @Column(name="date")
     private String date;
 
-//    @ManyToOne
-//    @JoinColumn(name="customer_id", nullable = false)
-//    private Customer customer;
+    @ManyToOne
+    @JoinColumn(name="customer_id", nullable = false)
+    private Customer customer;
 
     @ManyToOne
     @JoinColumn(name="course_id", nullable = false)
     private Course course;
 
-    public Booking(String date, Course course) {
+    public Booking(String date, Customer customer, Course course) {
         this.date = date;
-//        this.customer = customer; add customer to constructor args.
+        this.customer = customer;
         this.course = course;
     }
 
@@ -48,13 +48,13 @@ public class Booking {
         this.date = date;
     }
 
-//    public Customer getCustomer() {
-//        return customer;
-//    }
-//
-//    public void setCustomer(Customer customer) {
-//        this.customer = customer;
-//    }
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
     public Course getCourse() {
         return course;
