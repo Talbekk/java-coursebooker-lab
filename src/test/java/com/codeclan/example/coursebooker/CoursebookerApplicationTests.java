@@ -40,6 +40,12 @@ class CoursebookerApplicationTests {
 		assertEquals("Bilbo", found.get(0).getName());
 	}
 
+	@Test
+	public void findCoursesByBookingsCustomerId(){
+		List<Course> found = courseRepository.findCoursesByBookingsCustomerId(1L);
+		assertEquals("Dragon Riding", found.get(0).getName());
+	}
+
 
 
 
