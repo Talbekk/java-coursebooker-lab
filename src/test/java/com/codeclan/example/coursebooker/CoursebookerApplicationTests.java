@@ -61,9 +61,21 @@ class CoursebookerApplicationTests {
 	}
 
 	@Test
-	public void findCustomersByTownAndCourseId(){
+	public void findCustomersByTownAndBookingsCourseId(){
 		List<Customer> found = customerRepository.findCustomersByTownAndBookingsCourseId("Dragonstone", 3L);
 		assertEquals("Dhaenrys", found.get(0).getName());
+	}
+
+	@Test
+	public void findCustomersByBookingsCourseNameAndBookingsCourseTownAndAgeGreaterThan(){
+		List<Customer> found = customerRepository.findCustomersByBookingsCourseNameAndBookingsCourseTownAndAgeGreaterThan("Dragon Riding", "Throat of the World", 50);
+		assertEquals("Bilbo", found.get(0).getName());
+	}
+
+	@Test
+	public void findCustomersByTownAndCourseIdAndAgeGreaterThan(){
+		List<Customer> found = customerRepository.findCustomersByTownAndBookingsCourseIdAndAgeGreaterThan("Dragonstone", 3L, 50);
+		assertEquals(0, found.size());
 	}
 
 
