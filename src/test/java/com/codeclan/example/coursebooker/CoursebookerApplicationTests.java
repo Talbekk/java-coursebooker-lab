@@ -54,6 +54,18 @@ class CoursebookerApplicationTests {
 		assertEquals(1L, found.get(0).getId());
 	}
 
+	@Test
+	public void findCustomersByBookingsCourseNameAndBookingsCourseTown(){
+		List<Customer> found = customerRepository.findCustomersByBookingsCourseNameAndBookingsCourseTown("Dragon Riding", "Throat of the World");
+		assertEquals("Bilbo", found.get(0).getName());
+	}
+
+	@Test
+	public void findCustomersByTownAndCourseId(){
+		List<Customer> found = customerRepository.findCustomersByTownAndBookingsCourseId("Dragonstone", 3L);
+		assertEquals("Dhaenrys", found.get(0).getName());
+	}
+
 
 
 

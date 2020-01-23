@@ -34,17 +34,26 @@ public class DataLoader implements ApplicationRunner {
         Course course2 = new Course("Destruction Training", "Winterhold", 3);
         courseRepository.save(course2);
 
+        Course course3 = new Course("Dragon Riding", "Dragonstone", 3);
+        courseRepository.save(course3);
+
         Customer customer1 = new Customer("Bilbo", "The Shire", 111);
         customerRepository.save(customer1);
 
         Customer customer2 = new Customer("Saruman", "Isengard", 300);
         customerRepository.save(customer2);
 
+        Customer customer3 = new Customer("Dhaenrys", "Dragonstone", 21);
+        customerRepository.save(customer3);
+
         Booking booking1 = new Booking("12-10-17", customer1, course1);
         bookingRepository.save(booking1);
 
         Booking booking2 = new Booking("10-08-19", customer2, course2);
         bookingRepository.save(booking2);
+
+        Booking booking3 = new Booking("01-08-16", customer3, course3);
+        bookingRepository.save(booking3);
 
     }
 
